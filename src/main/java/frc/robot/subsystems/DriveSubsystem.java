@@ -24,10 +24,10 @@ public class DriveSubsystem extends SubsystemBase {
   
   public DriveSubsystem() {
     
-    m_leftController1 = new CANSparkMax(2,MotorType.kBrushless);
-    m_leftController2 = new CANSparkMax(3,MotorType.kBrushless);
-    m_rightController1 = new CANSparkMax(4,MotorType.kBrushless);
-    m_rightController2 = new CANSparkMax(5,MotorType.kBrushless);
+    m_leftController1 = new CANSparkMax(DriveConstants.kLeftMotor1Port,MotorType.kBrushless);
+    m_leftController2 = new CANSparkMax(DriveConstants.kLeftMotor2Port,MotorType.kBrushless);
+    m_rightController1 = new CANSparkMax(DriveConstants.kRightMotor1Port,MotorType.kBrushless);
+    m_rightController2 = new CANSparkMax(DriveConstants.kRightMotor2Port,MotorType.kBrushless);
     
     m_rightController1.restoreFactoryDefaults(); 
     m_rightController2.restoreFactoryDefaults();
