@@ -119,7 +119,7 @@ public void arcadeDrive(final double velocity,final double heading) {
 }
 
 public double getDistance() {
-  return -(m_leftEncoder1.getPosition() - m_rightEncoder1.getPosition()) / 2;
+  return (m_leftEncoder1.getPosition() - m_rightEncoder1.getPosition()) / 2;
 }
 
 private double getLeftDistance() {
@@ -163,10 +163,12 @@ public void initDriveController(double distance) {
   m_drivePIDController.setSetpoint(encoderDistance);
   resetEncoders();
   m_drivePIDController.reset();
+ // SmartDashboard.putNumber("EncoderDistance", encoderDistance);
 }
 
 public void execDriveController(double rotation) {
   arcadeDrive(MathUtil.clamp(m_drivePIDController.calculate(getDistance()),-DriveConstants.kDRIVE_PID_LIMIT, DriveConstants.kDRIVE_PID_LIMIT), 0);
+ // SmartDashboard.putNumber("GetDistance", getDistance());
 }
 
 public void endDriveController() {
